@@ -35,7 +35,7 @@ def get_headlines():
 
 @st.cache(allow_output_mutation = True)
 def get_news(df):
-    hub_model_id = "model"
+    hub_model_id = "munjulurik/autoShots"
     summarizer = pipeline("summarization", model=hub_model_id)
     df['Summary'] = df['news'].apply(summarizer)
     df['Summary'] = df['Summary'].apply(lambda x: x[0]['summary_text'])
